@@ -2,6 +2,8 @@ Attribute VB_Name = "AFormatoEca"
 Sub FormatoEca(Control As IRibbonControl)
 'Sub FormatoEca()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 11.02.18
     Application.ScreenUpdating = False
     Application.DisplayAlerts = False
     Application.EnableEvents = False
@@ -13,6 +15,26 @@ Sub FormatoEca(Control As IRibbonControl)
     On Error Resume Next
     Call Validacion_ResumenHoras
     Call Validacion_ResumenHorasDetalle
+    
+    'Declaracion de variables
+    Dim h1 As Boolean
+    h1 = False
+    
+    'Si existe Hoja "Resumen Horas"
+    For i = 1 To Worksheets.Count
+        If (Worksheets(i).Name = "ResumenHoras") Then
+            h1 = True
+            Exit For
+        End If
+    Next i
+    If (h1 = True) Then
+        Sheets("ResumenHoras").Select
+        Range("C13").Select
+    Else
+        Sheets("Incidencias").Select
+        Range("L11").Select
+    End If
+    
     'Guarda los cambios del archivo
     ActiveWorkbook.Save
         
@@ -22,6 +44,8 @@ Sub FormatoEca(Control As IRibbonControl)
 End Sub
 Private Sub Validacion_Incidencia()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 12.01.2018
     '---INCIDENCIAS---
     Sheets("Incidencias").Visible = xlSheetVisible
     Sheets("Incidencias").Select
@@ -54,6 +78,8 @@ Private Sub Validacion_Incidencia()
 End Sub
 Private Sub Formato_Incidencia()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 12.01.2018
     Sheets("Incidencias").Select
     'Seleccionar todas las celdas y acomoda
     Cells.Select
@@ -106,6 +132,8 @@ Private Sub Formato_Incidencia()
 End Sub
 Private Sub Validacion_PareoMarcaje()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 12.01.2018
     '---PAREO MARCAJES---
     Sheets("PareoMarcajes").Visible = xlSheetVisible
     Sheets("PareoMarcajes").Select
@@ -137,6 +165,8 @@ Private Sub Validacion_PareoMarcaje()
 End Sub
 Private Sub Formato_PareoMarcaje()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 12.01.2018
     Sheets("PareoMarcajes").Select
     Cells.Select
     Cells.RowHeight = 15
@@ -213,6 +243,8 @@ Private Sub Formato_PareoMarcaje()
 End Sub
 Private Sub Validacion_ResumenHoras()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 12.01.2018
     '---RESUMEN HORAS---
     Sheets("ResumenHoras").Visible = xlSheetVisible
     Sheets("ResumenHoras").Select
@@ -246,6 +278,8 @@ Private Sub Validacion_ResumenHoras()
 End Sub
 Private Sub Formato_ResumenHoras()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 29.01.2018
     Sheets("ResumenHoras").Select
     'Formato a 02 decimales
     Range("C13").Select
@@ -308,7 +342,7 @@ Private Sub Formato_ResumenHoras()
     Selection.Style = "Comma"
 
     'Celdas con ancho fijo
-    Range("C:C").ColumnWidth = 8.3
+    Range("C:C").ColumnWidth = 9
     
     Range("D:D").ColumnWidth = 8.2
     Range("E:E").ColumnWidth = 8.2
@@ -316,7 +350,7 @@ Private Sub Formato_ResumenHoras()
     Range("G:G").ColumnWidth = 6.2
     Range("H:H").ColumnWidth = 6.6
     
-    Range("I:I").ColumnWidth = 8
+    Range("I:I").ColumnWidth = 9
     Range("J:J").ColumnWidth = 10.3
     Range("K:K").ColumnWidth = 9
     Range("L:L").ColumnWidth = 9
@@ -335,6 +369,8 @@ Private Sub Formato_ResumenHoras()
 End Sub
 Private Sub Validacion_ResumenHorasDetalle()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 12.01.2018
     '---RESUMEN HORAS DETALLE---
     Sheets("ResumenHorasDetalle").Visible = xlSheetVisible
     Sheets("ResumenHorasDetalle").Select
@@ -368,6 +404,8 @@ Private Sub Validacion_ResumenHorasDetalle()
 End Sub
 Private Sub Formato_ResumenHorasDetalle()
     'Dedicado a mi Señor Todopoderoso
+    'Creado por: Hugo Garcia Silva V3.0
+    'Ultima actualizacion 29.01.2018
     Sheets("ResumenHorasDetalle").Select
     'Formato a 02 decimales
     Range("G13").Select
@@ -437,18 +475,18 @@ Private Sub Formato_ResumenHorasDetalle()
     Range("I:I").ColumnWidth = 8.2
     Range("J:J").ColumnWidth = 8.2
     Range("K:K").ColumnWidth = 7.9
-    Range("L:L").ColumnWidth = 6.2
+    Range("L:L").ColumnWidth = 8
     
     Range("M:M").ColumnWidth = 7.8
-    Range("N:N").ColumnWidth = 10.2
-    Range("O:O").ColumnWidth = 10.3
+    Range("N:N").ColumnWidth = 11
+    Range("O:O").ColumnWidth = 11
     Range("P:P").ColumnWidth = 9
-    Range("Q:Q").ColumnWidth = 9
-    Range("R:R").ColumnWidth = 7.2
+    Range("Q:Q").ColumnWidth = 10
+    Range("R:R").ColumnWidth = 9
     Range("S:S").ColumnWidth = 10.3
     Range("T:T").ColumnWidth = 9.5
     
-    Range("U:U").ColumnWidth = 8.8
+    Range("U:U").ColumnWidth = 10
     Range("V:V").ColumnWidth = 7.3
     Range("W:W").ColumnWidth = 9.6
     Range("X:X").ColumnWidth = 7
